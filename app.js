@@ -10,16 +10,16 @@ const emailAlert = document.getElementById("validate-email");
 const numberAlert = document.getElementById("validate-number");
 
 // Validation parameters
-const vName = /[^(\d\W)]{2,} [^(\d\W)]{2,}/g;
+const vName = /[^\d\W]{2,} [^\d\W]{2,}/g;
 const vPostalCode = /[A-Z][0-9][A-Z] [0-9][A-Z][0-9]/;
 const vEmail = /\w{2,}@\w{2,}.\w{2,}/;
 const vNumber = /\d{3}-\d{3}-\d{4}/;
 // Get user input and validate it
 button.addEventListener("click", () => {
-	if (vName.test(name.value)) {
+	if (vName.test(name.value) == true) {
 		name.setAttribute("class", "form-control is-valid name");
 		nameAlert.textContent = "";
-	} else {
+	} else if (vName.test(name.value) == false) {
 		nameAlert.setAttribute("class", "text-danger");
 		name.setAttribute("class", "form-control is-invalid name");
 		nameAlert.textContent =
